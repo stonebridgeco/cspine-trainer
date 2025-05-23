@@ -1,0 +1,417 @@
+ /* Custom properties for easy color management */
+:root {
+    --color-green-dark: hsl(140, 30%, 30%);  /* Rich, deep green */
+    --color-green-medium: hsl(140, 25%, 45%); /* Soothing green */
+    --color-brown-dark: hsl(30, 20%, 25%);   /* Rich brown */
+    --color-brown-medium: hsl(30, 15%, 40%); /* Warmer brown */
+    --color-blue-accent: hsl(200, 60%, 55%); /* Calming blue */
+    --color-blue-light: hsl(200, 70%, 75%);  /* Lighter blue accent */
+    --color-text-light: hsl(0, 0%, 95%);
+    --color-text-dark: hsl(0, 0%, 20%);
+    --color-background-light: hsl(0, 0%, 98%);
+    --color-background-dark: hsl(140, 10%, 15%); /* Very dark green/brown for shapes */
+
+    --font-primary: 'Open Sans', Arial, sans-serif; /* Easy to read */
+    --font-size-base: 1.15rem; /* Larger base font for old people */
+    --line-height-base: 1.7;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* For background shapes */
+    overflow-x: hidden; /* Prevent horizontal scroll from shapes */
+}
+
+/* Background Abstract Organic Shapes */
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Send to back */
+}
+
+.shape {
+    position: absolute;
+    background: linear-gradient(
+        45deg,
+        var(--color-green-medium),
+        var(--color-brown-medium)
+    );
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* Organic blob shape */
+    opacity: 0.1; /* Subtle */
+    animation: blob-move 20s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    bottom: 15%;
+    right: 5%;
+    animation-delay: 5s;
+    border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    top: 30%;
+    right: -5%;
+    animation-delay: 10s;
+    border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%;
+}
+
+@keyframes blob-move {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(20px, -30px) scale(1.05);
+    }
+    66% {
+        transform: translate(-10px, 40px) scale(0.95);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+
+/* Header and Navigation */
+header {
+    background-color: var(--color-green-dark);
+    color: var(--color-text-light);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-blue-light); /* Accent color for title */
+}
+
+nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0; /* Make clickable area larger */
+}
+
+nav a:hover, nav a:focus {
+    color: var(--color-blue-accent);
+}
+
+/* Main Content Area */
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Pushes footer to bottom */
+}
+
+h2, h3 {
+    color: var(--color-brown-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem; /* Slightly larger button text */
+    text-align: center;
+}
+
+.button.primary {
+    background-color: var(--color-blue-accent);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-blue-accent);
+}
+
+.button.primary:hover, .button.primary:focus {
+    background-color: hsl(200, 60%, 45%); /* Slightly darker blue */
+    transform: translateY(-2px);
+}
+
+.button.secondary {
+    background-color: var(--color-green-medium);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-green-medium);
+}
+
+.button.secondary:hover, .button.secondary:focus {
+    background-color: hsl(140, 20%, 35%); /* Slightly darker green */
+    transform: translateY(-2px);
+}
+
+.button.tertiary {
+    background-color: transparent;
+    color: var(--color-brown-dark);
+    border: 2px solid var(--color-brown-dark);
+}
+
+.button.tertiary:hover, .button.tertiary:focus {
+    background-color: var(--color-brown-dark);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.navigation-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Form Styles */
+.form-section {
+    padding: 2rem;
+    background-color: var(--color-background-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-brown-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px 10px;
+    border: 1px solid var(--color-brown-medium);
+    border-radius: 6px;
+    font-size: var(--font-size-base);
+    color: var(--color-text-dark);
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-blue-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-blue-accent-rgb), 0.2);
+}
+
+/* Therapy Cards (for selection screen) */
+.therapy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.therapy-card {
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-green-medium);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.therapy-card:hover {
+    transform: translateY(-5px);
+}
+
+.therapy-card h3 {
+    color: var(--color-blue-accent);
+    margin-top: 0;
+}
+
+.therapy-card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.therapy-card .button {
+    align-self: flex-end;
+}
+
+/* Exercise Detail */
+.exercise-detail-section {
+    text-align: center;
+}
+
+.exercise-image {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 400px; /* Constrain image height */
+    object-fit: contain; /* Ensure image fits without cropping */
+}
+
+.exercise-instructions {
+    text-align: left;
+    margin-bottom: 2rem;
+    background-color: hsl(140, 10%, 95%); /* Very light green background */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-green-medium);
+}
+
+.exercise-instructions h3 {
+    color: var(--color-green-dark);
+}
+
+.important-note, .small-text {
+    font-size: 0.95rem;
+    color: var(--color-brown-medium);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Flash Messages */
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.flashes li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.flashes .success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+}
+
+.flashes .error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-brown-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem; /* Add some space above footer */
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav a {
+        margin: 0.5rem 0.8rem;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .cta-buttons, .navigation-buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        padding: 10px 8px;
+    }
+}

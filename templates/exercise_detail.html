@@ -1,0 +1,33 @@
+ {% extends 'base.html' %}
+
+{% block title %}{{ exercise.name }}{% endblock %}
+
+{% block content %}
+    <section class="exercise-detail-section">
+        <h2>{{ exercise.name }}</h2>
+        <div class="exercise-image">
+            <img src="{{ url_for('static', filename='images/' + exercise.img) if exercise.img else url_for('static', filename='images/placeholder.jpg') }}" alt="Illustration of {{ exercise.name }}">
+        </div>
+        <div class="exercise-instructions">
+            <h3>Instructions:</h3>
+            <p>{{ exercise.instructions }}</p>
+            {% if exercise.duration %}
+                <p><strong>Duration:</strong> {{ exercise.duration }}</p>
+            {% endif %}
+            {% if exercise.repetitions %}
+                <p><strong>Repetitions:</strong> {{ exercise.repetitions }}</p>
+            {% endif %}
+        </div>
+        <div class="navigation-buttons">
+            {% if current_index > 0 %}
+                <a href="{{ url_for('exercise_detail', area_id=area_id, exercise_index=current_index - 1) }}" class="button secondary">Previous Exercise</a>
+            {% endif %}
+
+            {% if has_next %}
+                <a href="{{ url_for('exercise_detail', area_id=area_id, exercise_index=next_index) }}" class="button primary">Next Exercise</a>
+            {% else %}
+                <a href="{{ url_for('therapy_complete', area_id=area_id) }}" class="button primary">Finish Session</a>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

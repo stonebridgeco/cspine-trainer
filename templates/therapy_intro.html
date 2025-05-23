@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ area.title }}{% endblock %}
+
+{% block content %}
+    <section class="therapy-intro-section">
+        <h2>{{ area.title }}</h2>
+        <p>{{ area.description }}</p>
+        <p class="important-note"><strong>Important:</strong> Listen to your body. Do not push into pain. If you experience sharp pain, stop immediately and consult a healthcare professional.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('exercise_detail', area_id=area_id, exercise_index=0) }}" class="button primary">Begin Exercises</a>
+            <a href="{{ url_for('therapy_selection') }}" class="button tertiary">Choose Another Area</a>
+        </div>
+    </section>
+{% endblock %}

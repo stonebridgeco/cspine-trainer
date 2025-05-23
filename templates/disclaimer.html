@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Medical Disclaimer{% endblock %}
+
+{% block content %}
+    <section class="disclaimer-section">
+        <h2>Medical Disclaimer</h2>
+        <p><strong>PLEASE READ CAREFULLY:</strong></p>
+        <p>The information provided by the CervicalCare app is for educational and informational purposes only, and is not intended as medical advice. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+        <p>Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+        <ul>
+            <li>Do not disregard professional medical advice or delay in seeking it because of something you have read on this app.</li>
+            <li>If you think you may have a medical emergency, call your doctor or emergency services immediately.</li>
+            <li>The exercises and information in this app may not be suitable for everyone. Consult with a healthcare professional before starting any new exercise program, especially if you have pre-existing medical conditions, injuries, or are experiencing acute pain.</li>
+            <li>Stop any exercise immediately if you experience pain, dizziness, or discomfort.</li>
+            <li>The creators of this app are not responsible for any adverse effects resulting from the use of the information or exercises provided herein.</li>
+        </ul>
+        <p>By using this app, you acknowledge and agree to these terms.</p>
+        <a href="{{ url_for('index') }}" class="button primary">Back to Home</a>
+    </section>
+{% endblock %}

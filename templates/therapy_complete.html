@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Session Complete!{% endblock %}
+
+{% block content %}
+    <section class="therapy-complete-section">
+        <h2>Session Complete!</h2>
+        <p>You've successfully completed the <strong>{{ area.title }}</strong> session. We hope you feel a sense of relief and improved comfort.</p>
+        <p>Remember consistency is key for long-term benefits. Listen to your body and feel free to repeat sessions as needed, or explore other therapy areas.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('therapy_selection') }}" class="button primary">Start New Session</a>
+            <a href="{{ url_for('index') }}" class="button secondary">Go to Home</a>
+        </div>
+        <p class="small-text">Always consult a medical professional if pain persists or worsens.</p>
+    </section>
+{% endblock %}

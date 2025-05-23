@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <section class="welcome-section">
+        <h2>Welcome to CervicalCare</h2>
+        <p>Your personalized guide to gentle home therapy for neck and shoulder pain relief.</p>
+        <p>Designed to help you find comfort and improve mobility in your cervical spine, right from your home or on the go.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('therapy_selection') }}" class="button primary">Start Therapy Session</a>
+            <a href="{{ url_for('signup') }}" class="button secondary">Sign Up for Updates</a>
+        </div>
+        <p class="small-text">New to our app? Please read our <a href="{{ url_for('disclaimer') }}">Medical Disclaimer</a>.</p>
+    </section>
+{% endblock %}
