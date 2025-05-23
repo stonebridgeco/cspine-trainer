@@ -1,5 +1,5 @@
-# cspine-trainer
-application to provide training for soft tissues surrounding the neck to alleviate pain
+
+---
 
 ## Cervical Spine Home Therapy App
 
@@ -51,15 +51,3 @@ cervical-therapy-app/
 ```
 
 ---
-Cervical Spine Home Therapy App
-Core Principles:
-1. User-Centric Design: Easy navigation, large readable text, clear instructions.
-2. Soothing Aesthetics: Colors, shapes, and font chosen to create a calm, supportive environment.
-3. Workflow-Driven: Guiding the user step-by-step through their chosen therapy.
-4. Accessibility: High contrast, good font size, semantic HTML.
-
-Technology Stack:
-* Backend: Python 3 with Flask
-* Database: SQLite (for simplicity in development, easily upgradable to PostgreSQL/MySQL)
-* Frontend: HTML5, CSS3, Vanilla JavaScript
-* ORM: SQLAlchemy (integrated with Flask-SQLAlchemy) 
